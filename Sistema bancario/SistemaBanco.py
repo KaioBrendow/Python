@@ -62,14 +62,22 @@ def extrato_bancario(saldo , extrato):
     return extra
 
 def cria_usuario(nome, data_nasc, cpf, endereco):
-    cliente = {cpf: {"nome": nome, "nascimento": data_nasc, "endereco": endereco}}
+    cliente = {"CPF": cpf, "nome": nome, "nascimento": data_nasc, "endereco": endereco}
     return cliente      
 
 def verifica_cpf(cpf, cliente):
-     print(cliente)
-     for clientes in cliente:
-          print(clientes+" CPF entregue"+cpf)
-     return True
+     if len(cliente) >0:   
+        for clientes in cliente:
+            #print(f"{clientes} CPF entregue {cpf}")
+            #print(cpf)
+            valores = clientes["CPF"]
+            #print(valores)
+            if cpf == valores:
+                 return False
+
+     else:
+        print(cliente)
+        return True
 
 while True:
 
