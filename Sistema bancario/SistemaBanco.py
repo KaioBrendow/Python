@@ -26,7 +26,7 @@ numero_saques = 0
 lista = []
 contas = []
 
-def deposito(saldo, valor, extrato):
+def deposito(saldo, valor, extrato, /):
     
     if float(valor) > 0.0:
         #fuso = timezone('America/Sao_Paulo')
@@ -37,7 +37,7 @@ def deposito(saldo, valor, extrato):
     else:
         return False
         
-def saque(saldo, valor, extrato, numero_saques, limite_saques):
+def saque(*,saldo, valor, extrato, numero_saques, limite_saques):
     
     if float(valor) > 0.0:
         if int(numero_saques) < limite_saques:
@@ -59,7 +59,7 @@ def saque(saldo, valor, extrato, numero_saques, limite_saques):
     else:
             return 2
 
-def extrato_bancario(saldo , extrato):
+def extrato_bancario(saldo , /, *, extrato):
     extra = f"""
     Saldo:  {saldo:10.2f}
 
